@@ -1,0 +1,12 @@
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.exe.config
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.exe
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.pdb
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.csprojResolveAssemblyReference.cache
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.Properties.Resources.resources
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.csproj.GenerateResource.Cache
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.exe
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.pdb
+c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.tabGUI.resources
+c:\Users\Chickstor\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BrowserFrame.resources
+C:\Users\Chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BookmarkForm.resources
+C:\Users\Chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.HomepageDialog.resources
