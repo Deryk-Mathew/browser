@@ -10,3 +10,15 @@ c:\users\chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeB
 c:\Users\Chickstor\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BrowserFrame.resources
 C:\Users\Chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BookmarkForm.resources
 C:\Users\Chickstor\documents\visual studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.HomepageDialog.resources
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.exe.config
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.exe
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.pdb
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.csprojResolveAssemblyReference.cache
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BookmarkForm.resources
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BrowserFrame.resources
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.HomepageDialog.resources
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.tabGUI.resources
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.Properties.Resources.resources
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.csproj.GenerateResource.Cache
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.exe
+C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.pdb

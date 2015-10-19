@@ -16,7 +16,6 @@ namespace AwesomeBrowser
         internal void addLocalHistory(string text)
         {
             local_list.Add(text);
-            GlobalHistory.addGlobalHistory(text);
             local_list.TrimExcess();
         }
 

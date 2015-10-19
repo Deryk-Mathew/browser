@@ -9,30 +9,27 @@ namespace AwesomeBrowser
         public BrowserFrame()
         {
             InitializeComponent();
-            newTab();
-            //listBox1.Items.Add(books.addBookmark());
+            populateTab();
         }
 
-        public void newTab()
+        public void populateTab()
         {
             tabGUI frm2 = new tabGUI();
             frm2.TopLevel = false;
             frm2.Dock = DockStyle.Fill;
             frm2.Show();
             tabControl1.TabPages[0].Controls.Add(frm2);
-
         }
 
-        private void tabPage2_Click(object sender, System.EventArgs e)
+        private void tabControl1_DoubleClick(object sender, System.EventArgs e)
         {
-            tabGUI tpage = new tabGUI();
-            tpage.TopLevel = false;
-            tpage.Dock = DockStyle.Fill;
-            tpage.Show();
-            //tabControl1.TabPages[tabControl1.TabCount +1].Controls.Add(tpage);
-            tabControl1.TabPages.Insert(tabControl1.TabCount - 1, tpage);
-            //tpage.Controls.Add(tpage);
-            //tabControl1.SelectTab(tpage);
+            tabGUI frm3 = new tabGUI();
+            TabPage tp = new TabPage();
+            frm3.TopLevel = false;
+            frm3.Dock = DockStyle.Fill;
+            frm3.Show();
+            tp.Controls.Add(frm3);
+            tabControl1.TabPages.Add(tp);
         }
     }
 }

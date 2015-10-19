@@ -6,7 +6,7 @@ namespace AwesomeBrowser
     public partial class tabGUI : Form
     {
         LocalHistory local_hist = new LocalHistory();
-        static GlobalHistory global_hist = new GlobalHistory();
+       
         public static Bookmarks books = new Bookmarks();
 
         public tabGUI()
@@ -14,13 +14,15 @@ namespace AwesomeBrowser
             InitializeComponent();
             local_hist.addLocalHistory(Properties.Settings.Default.homepage);
             richTextBox1.Text = GetWebPage.getPage(local_hist.getHomePage());
-            bookmark_list.Items.Add(books.readBookmark());
+
         }
 
         private void go_btn_Click_1(object sender, EventArgs e)
         {
-            richTextBox1.Text = GetWebPage.getPage(address_bar.Text);
-            local_hist.addLocalHistory(address_bar.Text);
+            if(address_bar.Text != "") {
+                richTextBox1.Text = GetWebPage.getPage(address_bar.Text);
+                local_hist.addLocalHistory(address_bar.Text);
+            }           
          }
 
         private void home_btn_Click(object sender, EventArgs e)
@@ -62,6 +64,11 @@ namespace AwesomeBrowser
         }
 
         private void editBookmarkMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bookmarksToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

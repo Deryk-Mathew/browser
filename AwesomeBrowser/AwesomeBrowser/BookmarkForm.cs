@@ -19,7 +19,7 @@ namespace AwesomeBrowser
 
         private void bookmark_submit_btn_Click(object sender, EventArgs e)
         {
-            tabGUI.books.addBookmark(title_textbox.Text.ToString(), url_textbox.Text.ToString());
+            tabGUI.books.addBookmark(url_textbox.Text.ToString(), title_textbox.Text.ToString());
             this.Close();
         }
     }
