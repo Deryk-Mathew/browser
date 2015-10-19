@@ -21,6 +21,17 @@ namespace AwesomeBrowser
             Serialize(bookmarks);
         }
 
+        internal List<string> displayBookmarks()
+        {
+            List<string> list = new List<string>(bookmarks.Values);
+            return list;
+        }
+
+        internal string getBookmark(string value)
+        {
+            return bookmarks.FirstOrDefault(x => x.Value == value).Key;
+        }
+
          static void Serialize(Dictionary<string, string> data)
         {
             using (var file = File.Create(@"bookmark.bin"))
