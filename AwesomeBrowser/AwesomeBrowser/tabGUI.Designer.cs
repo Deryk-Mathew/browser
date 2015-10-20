@@ -43,19 +43,21 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.bookmark_tab = new System.Windows.Forms.TabPage();
             this.bookmark_list = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addBookmarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editBookmarkToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.history_tab = new System.Windows.Forms.TabPage();
+            this.history_list = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editBookmarkToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.history_list = new System.Windows.Forms.ListBox();
-            this.addBookmarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteBookmarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.bookmark_tab.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.history_tab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // back_btn
@@ -98,6 +100,7 @@
             this.address_bar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.address_bar.Name = "address_bar";
             this.address_bar.Size = new System.Drawing.Size(500, 25);
+            this.address_bar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.address_bar_KeyUp);
             // 
             // go_btn
             // 
@@ -117,7 +120,8 @@
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setHomepageToolStripMenuItem,
             this.editHomepageToolStripMenuItem,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.clearHistoryToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
@@ -200,6 +204,29 @@
             this.bookmark_list.TabIndex = 0;
             this.bookmark_list.DoubleClick += new System.EventHandler(this.bookmark_list_SelectedIndexChanged);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addBookmarkToolStripMenuItem,
+            this.editBookmarkToolStripMenuItem1,
+            this.deleteBookmarkToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 92);
+            // 
+            // addBookmarkToolStripMenuItem
+            // 
+            this.addBookmarkToolStripMenuItem.Name = "addBookmarkToolStripMenuItem";
+            this.addBookmarkToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.addBookmarkToolStripMenuItem.Text = "Add Bookmark";
+            this.addBookmarkToolStripMenuItem.Click += new System.EventHandler(this.addBookmarkToolStripMenuItem_Click);
+            // 
+            // editBookmarkToolStripMenuItem1
+            // 
+            this.editBookmarkToolStripMenuItem1.Name = "editBookmarkToolStripMenuItem1";
+            this.editBookmarkToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.editBookmarkToolStripMenuItem1.Text = "Edit Bookmark";
+            this.editBookmarkToolStripMenuItem1.Click += new System.EventHandler(this.editBookmarkToolStripMenuItem1_Click);
+            // 
             // history_tab
             // 
             this.history_tab.Controls.Add(this.history_list);
@@ -210,6 +237,16 @@
             this.history_tab.TabIndex = 1;
             this.history_tab.Text = "Histroy";
             this.history_tab.UseVisualStyleBackColor = true;
+            // 
+            // history_list
+            // 
+            this.history_list.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.history_list.FormattingEnabled = true;
+            this.history_list.Location = new System.Drawing.Point(3, 3);
+            this.history_list.Name = "history_list";
+            this.history_list.Size = new System.Drawing.Size(134, 584);
+            this.history_list.TabIndex = 0;
+            this.history_list.DoubleClick += new System.EventHandler(this.history_list_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -234,37 +271,21 @@
             this.richTextBox1.Size = new System.Drawing.Size(1124, 592);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
-            // contextMenuStrip1
+            // clearHistoryToolStripMenuItem
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addBookmarkToolStripMenuItem,
-            this.editBookmarkToolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 48);
+            this.clearHistoryToolStripMenuItem.Name = "clearHistoryToolStripMenuItem";
+            this.clearHistoryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.clearHistoryToolStripMenuItem.Text = "Clear History";
+            this.clearHistoryToolStripMenuItem.Click += new System.EventHandler(this.clearHistoryToolStripMenuItem_Click);
             // 
-            // editBookmarkToolStripMenuItem1
+            // deleteBookmarkToolStripMenuItem
             // 
-            this.editBookmarkToolStripMenuItem1.Name = "editBookmarkToolStripMenuItem1";
-            this.editBookmarkToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
-            this.editBookmarkToolStripMenuItem1.Text = "Edit Bookmark";
-            this.editBookmarkToolStripMenuItem1.Click += new System.EventHandler(this.editBookmarkToolStripMenuItem1_Click);
-            // 
-            // history_list
-            // 
-            this.history_list.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.history_list.FormattingEnabled = true;
-            this.history_list.Location = new System.Drawing.Point(3, 3);
-            this.history_list.Name = "history_list";
-            this.history_list.Size = new System.Drawing.Size(134, 584);
-            this.history_list.TabIndex = 0;
-            // 
-            // addBookmarkToolStripMenuItem
-            // 
-            this.addBookmarkToolStripMenuItem.Name = "addBookmarkToolStripMenuItem";
-            this.addBookmarkToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.addBookmarkToolStripMenuItem.Text = "Add Bookmark";
-            this.addBookmarkToolStripMenuItem.Click += new System.EventHandler(this.addBookmarkToolStripMenuItem_Click);
+            this.deleteBookmarkToolStripMenuItem.Name = "deleteBookmarkToolStripMenuItem";
+            this.deleteBookmarkToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.deleteBookmarkToolStripMenuItem.Text = "Delete Bookmark";
+            this.deleteBookmarkToolStripMenuItem.Click += new System.EventHandler(this.deleteBookmarkToolStripMenuItem_Click);
             // 
             // tabGUI
             // 
@@ -282,9 +303,9 @@
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.bookmark_tab.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.history_tab.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +332,7 @@
         private System.Windows.Forms.ToolStripMenuItem editBookmarkToolStripMenuItem1;
         private System.Windows.Forms.ListBox history_list;
         private System.Windows.Forms.ToolStripMenuItem addBookmarkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteBookmarkToolStripMenuItem;
     }
 }

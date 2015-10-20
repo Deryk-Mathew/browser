@@ -22,12 +22,14 @@ namespace AwesomeBrowser
                 bookmarks.Add(key, value);
                 Serialize(bookmarks);
             }
-            catch (Exception e) { }
+            catch (Exception) { }
         }
 
         internal void editBookmark(string key, string value)
         {
-            //bookmarks.ToDictionary(kvp => kvp.Key, kvp => kvp.Value+1);
+            bookmarks.Remove(key);
+            bookmarks.Add(key, value);
+            Serialize(bookmarks);
         }
 
         internal List<string> displayBookmarks()
@@ -41,7 +43,7 @@ namespace AwesomeBrowser
             return bookmarks.FirstOrDefault(x => x.Value == value).Key;
         }
 
-         static void Serialize(Dictionary<string, string> data)
+        static void Serialize(Dictionary<string, string> data)
         {
             using (var file = File.Create(@"bookmark.bin"))
             using (var writer = new BinaryWriter(file))
@@ -68,6 +70,12 @@ namespace AwesomeBrowser
                 }
                 return data;
             }
+        }
+
+        internal void deleteBookmark(string v)
+        {
+            bookmarks.Remove(bookmarks.FirstOrDefault(x => x.Value == v).Key);
+            Serialize(bookmarks);
         }
     }
 }

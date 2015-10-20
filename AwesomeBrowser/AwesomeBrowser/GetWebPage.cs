@@ -6,54 +6,57 @@ namespace AwesomeBrowser
 {
     internal class GetWebPage
     {
-
+       
         public GetWebPage() { }
 
         internal static string getPage(string address)
         {
-            
-                string urlAdd = "http://" + address + "/";
+            string urlAdd = "http://" + address + "/";
 
-                // used to build entire input
-                StringBuilder sb = new StringBuilder();
+            // used to build entire input
+            StringBuilder sb = new StringBuilder();
 
-                // used on each read operation
-                byte[] buf = new byte[8192];
+            // used on each read operation
+            byte[] buf = new byte[8192];
 
             try {
-                // prepare the web page we will be asking for
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAdd);
-
-                // execute the request
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                // read data via the response stream
-                Stream resStream = response.GetResponseStream();
-
-                string tempString = null;
-                int count = 0;
-
-                do
+                try
                 {
-                    // fill the buffer with data
-                    count = resStream.Read(buf, 0, buf.Length);
+                    // prepare the web page we will be asking for
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAdd);
 
-                    // make sure we read some data
-                    if (count != 0)
+                    // execute the request
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                    // read data via the response stream
+                    Stream resStream = response.GetResponseStream();
+
+                    string tempString = null;
+                    int count = 0;
+
+                    do
                     {
-                        // translate from bytes to ASCII text
-                        tempString = Encoding.ASCII.GetString(buf, 0, count);
+                        // fill the buffer with data
+                        count = resStream.Read(buf, 0, buf.Length);
 
-                        // continue building the string
-                        sb.Append(tempString);
+                        // make sure we read some data
+                        if (count != 0)
+                        {
+                            // translate from bytes to ASCII text
+                            tempString = Encoding.ASCII.GetString(buf, 0, count);
+
+                            // continue building the string
+                            sb.Append(tempString);
+                        }
                     }
-                }
-                while (count > 0); // any more data to read?
+                    while (count > 0); // any more data to read?
 
-                return sb.ToString();
+                    return sb.ToString();
+                }
+                catch (System.UriFormatException) { return "403"; }
+                
             }
             catch (WebException) { return "404"; }
-            }
-
+        }
     }
 }

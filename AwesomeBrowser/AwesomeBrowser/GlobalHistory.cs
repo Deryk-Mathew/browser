@@ -9,33 +9,29 @@ namespace AwesomeBrowser
 {
     class GlobalHistory
     {
-        static Dictionary<string, string> history = new Dictionary<string, string>();
+        static HashSet<string> history = new HashSet<string>();
 
         public GlobalHistory()
         {
             history = Deserialize();
         }
 
-        internal void addHistory(string key, string value)
+        internal void addHistory(string value)
         {
-            if (history.ContainsKey(key))
-            {
-                history[key] = value;
-                Serialize(history);
-            }
-            else
-            {
-                history.Add(key, value);
-            }
+            
+            history.Add(value);
+
+            Serialize(history);
         }
 
-        internal List<string> displayHistory()
+        internal HashSet<string> displayHistory()
         {
-            List<string> list = new List<string>(history.Keys);
-            return list;
+            return history;
         }
 
-        static void Serialize(Dictionary<string, string> data)
+        internal void clearHistory() { history.Clear(); Serialize(history); }
+
+        static void Serialize(HashSet<string> data)
         {
             using (var file = File.Create(@"history.bin"))
             using (var writer = new BinaryWriter(file))
@@ -43,25 +39,29 @@ namespace AwesomeBrowser
                 writer.Write(data.Count);
                 foreach (var pair in data)
                 {
-                    writer.Write(pair.Key);
-                    writer.Write(pair.Value);
+                    writer.Write(pair);
                 }
             }
         }
 
-        static Dictionary<string, string> Deserialize()
+        static HashSet<string> Deserialize()
         {
             using (var file = File.OpenRead(@"history.bin"))
             using (var reader = new BinaryReader(file))
             {
                 int count = reader.ReadInt32();
-                var data = new Dictionary<string, string>(count);
+                var data = new HashSet<string>();
                 while (count-- > 0)
                 {
-                    data.Add(reader.ReadString(), reader.ReadString());
+                    data.Add(reader.ReadString());
                 }
                 return data;
             }
+        }
+
+        internal string getHistory(string v)
+        {
+            return history.SingleOrDefault(x => x == v);
         }
     }
 }

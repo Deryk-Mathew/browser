@@ -22,6 +22,7 @@ namespace AwesomeBrowser
             this.label1.Text = "Edit Homepage";
             this.Text = "Edit Homepage";
             this.homepage_address.Text = Properties.Settings.Default.homepage;
+            Properties.Settings.Default.Save();
         }
     }
 }
