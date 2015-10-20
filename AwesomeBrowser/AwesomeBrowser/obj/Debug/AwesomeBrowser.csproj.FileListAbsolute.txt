@@ -22,3 +22,15 @@ C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\
 C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.csproj.GenerateResource.Cache
 C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.exe
 C:\Users\Chickstor\Documents\Visual Studio 2015\Projects\browser\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.pdb
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.exe.config
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.exe
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.pdb
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.exe
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\bin\Debug\AwesomeBrowser.pdb
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.csprojResolveAssemblyReference.cache
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BookmarkForm.resources
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.BrowserFrame.resources
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.HomepageDialog.resources
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.tabGUI.resources
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.Properties.Resources.resources
+C:\Users\dm362\Documents\Visual Studio 2015\Projects\AwesomeBrowser\AwesomeBrowser\obj\Debug\AwesomeBrowser.csproj.GenerateResource.Cache

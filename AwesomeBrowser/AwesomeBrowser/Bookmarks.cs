@@ -17,8 +17,17 @@ namespace AwesomeBrowser
 
         internal void addBookmark(string key, string value)
         {
-            bookmarks.Add(key, value);
-            Serialize(bookmarks);
+            try
+            {
+                bookmarks.Add(key, value);
+                Serialize(bookmarks);
+            }
+            catch (Exception e) { }
+        }
+
+        internal void editBookmark(string key, string value)
+        {
+            //bookmarks.ToDictionary(kvp => kvp.Key, kvp => kvp.Value+1);
         }
 
         internal List<string> displayBookmarks()

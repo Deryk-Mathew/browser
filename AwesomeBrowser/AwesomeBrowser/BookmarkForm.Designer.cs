@@ -37,6 +37,7 @@
             // 
             // bookmark_submit_btn
             // 
+            this.bookmark_submit_btn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bookmark_submit_btn.Location = new System.Drawing.Point(166, 148);
             this.bookmark_submit_btn.Name = "bookmark_submit_btn";
             this.bookmark_submit_btn.Size = new System.Drawing.Size(75, 23);

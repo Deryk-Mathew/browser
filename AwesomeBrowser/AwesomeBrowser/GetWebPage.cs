@@ -11,7 +11,8 @@ namespace AwesomeBrowser
 
         internal static string getPage(string address)
         {
-                 string urlAdd = "http://" + address + "/";
+            
+                string urlAdd = "http://" + address + "/";
 
                 // used to build entire input
                 StringBuilder sb = new StringBuilder();
@@ -19,6 +20,7 @@ namespace AwesomeBrowser
                 // used on each read operation
                 byte[] buf = new byte[8192];
 
+            try {
                 // prepare the web page we will be asking for
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAdd);
 
@@ -49,6 +51,8 @@ namespace AwesomeBrowser
                 while (count > 0); // any more data to read?
 
                 return sb.ToString();
+            }
+            catch (WebException) { return "404"; }
             }
 
     }

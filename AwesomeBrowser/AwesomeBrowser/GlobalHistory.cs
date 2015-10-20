@@ -1,45 +1,66 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AwesomeBrowser
 {
     class GlobalHistory
     {
-        private static string filePath = @"TextFile1.txt";
-        static List<string> global_list = new List<string>();
-        static List<string> noDupes = new List<string>();
+        static Dictionary<string, string> history = new Dictionary<string, string>();
 
-        public GlobalHistory() {
-
+        public GlobalHistory()
+        {
+            history = Deserialize();
         }
 
-        public static void addGlobalHistory(string text)
+        internal void addHistory(string key, string value)
         {
-            global_list.Add(text);
-            noDupes = global_list.Distinct().ToList();
-        }
-
-        public void readFile()
-        {
-            using (var streamReader = new StreamReader(filePath, Encoding.Default))
+            if (history.ContainsKey(key))
             {
-                while (!streamReader.EndOfStream)
+                history[key] = value;
+                Serialize(history);
+            }
+            else
+            {
+                history.Add(key, value);
+            }
+        }
+
+        internal List<string> displayHistory()
+        {
+            List<string> list = new List<string>(history.Keys);
+            return list;
+        }
+
+        static void Serialize(Dictionary<string, string> data)
+        {
+            using (var file = File.Create(@"history.bin"))
+            using (var writer = new BinaryWriter(file))
+            {
+                writer.Write(data.Count);
+                foreach (var pair in data)
                 {
-                    global_list.Add(streamReader.ReadLine());
+                    writer.Write(pair.Key);
+                    writer.Write(pair.Value);
                 }
             }
         }
 
-        public void writeFile()
+        static Dictionary<string, string> Deserialize()
         {
-            using (var streamWriter = new StreamWriter(filePath, false, Encoding.Default))
+            using (var file = File.OpenRead(@"history.bin"))
+            using (var reader = new BinaryReader(file))
             {
-                foreach (string line in noDupes)
+                int count = reader.ReadInt32();
+                var data = new Dictionary<string, string>(count);
+                while (count-- > 0)
                 {
-                    streamWriter.WriteLine(line);
+                    data.Add(reader.ReadString(), reader.ReadString());
                 }
+                return data;
             }
         }
     }
