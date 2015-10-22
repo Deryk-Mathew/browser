@@ -4,13 +4,12 @@ namespace AwesomeBrowser
 {
     public partial class BrowserFrame : Form
     {
-
+            
 
         public BrowserFrame()
         {
             InitializeComponent();
             populateTab();
-            //listBox1.Items.Add(books.addBookmark());
         }
 
         public void populateTab()
@@ -22,21 +21,26 @@ namespace AwesomeBrowser
             tabControl1.TabPages[0].Controls.Add(frm2);
         }
 
-        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-
-        }
-
         private void tabControl1_DoubleClick(object sender, System.EventArgs e)
         {
             tabGUI frm3 = new tabGUI();
             TabPage tp = new TabPage();
-
             frm3.TopLevel = false;
             frm3.Dock = DockStyle.Fill;
             frm3.Show();
             tp.Controls.Add(frm3);
             tabControl1.TabPages.Add(tp);
+            tp.Text = "New Page";
+        }
+
+        private void newTabToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            tabControl1_DoubleClick(sender, e);
+        }
+
+        private void closeTabToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            tabControl1.TabPages.Remove(tabControl1.SelectedTab);
         }
     }
 }

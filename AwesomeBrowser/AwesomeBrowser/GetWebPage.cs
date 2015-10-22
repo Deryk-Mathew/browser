@@ -53,10 +53,10 @@ namespace AwesomeBrowser
 
                     return sb.ToString();
                 }
-                catch (System.UriFormatException) { return "403"; }
+                catch (System.UriFormatException e) { return "400 Bad Request"; }
                 
             }
-            catch (WebException) { return "404"; }
+            catch (WebException e) { if (e.ToString() == "403") { return "403 Forbidden"; } else { return "404 Not Found"; }  }
         }
     }
 }

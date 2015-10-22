@@ -93,10 +93,14 @@ namespace AwesomeBrowser
 
         private void bookmark_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string temp = books.getBookmark(bookmark_list.SelectedItem.ToString());
-            richTextBox1.Text = GetWebPage.getPage(temp);
-            global_hist.addHistory(temp);
-            generateHistory();
+            try
+            {
+                string temp = books.getBookmark(bookmark_list.SelectedItem.ToString());
+                richTextBox1.Text = GetWebPage.getPage(temp);
+                global_hist.addHistory(temp);
+                generateHistory();
+            }
+            catch (Exception) { }
         }
 
         private void tabControl1_DoubleClick(object sender, EventArgs e)
@@ -109,19 +113,30 @@ namespace AwesomeBrowser
 
         private void editBookmarkToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            BookmarkForm bookForm = new BookmarkForm();
-            bookForm.editBookmark(bookmark_list.SelectedItem.ToString());
-            bookForm.Show();
-            generateBookMarks();
+            try
+            {
+                BookmarkForm bookForm = new BookmarkForm();
+                bookForm.editBookmark(bookmark_list.SelectedItem.ToString());
+                if (bookForm.ShowDialog() == DialogResult.OK)
+                {
+                    bookForm.Show();
+                    generateBookMarks();
+                }
+            }
+            catch (Exception) { }
         }
 
         private void addBookmarkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BookmarkForm bookForm = new BookmarkForm();
-            if(bookForm.ShowDialog() == DialogResult.OK)
+            try
             {
-                generateBookMarks();
+                BookmarkForm bookForm = new BookmarkForm();
+                if (bookForm.ShowDialog() == DialogResult.OK)
+                {
+                    generateBookMarks();
+                }
             }
+            catch (Exception) { }
         }
 
         private void address_bar_KeyUp(object sender, KeyEventArgs e)
@@ -146,7 +161,11 @@ namespace AwesomeBrowser
 
         private void history_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            richTextBox1.Text = GetWebPage.getPage(global_hist.getHistory(history_list.SelectedItem.ToString()));
+            try
+            {
+                richTextBox1.Text = GetWebPage.getPage(global_hist.getHistory(history_list.SelectedItem.ToString()));
+            }
+            catch (Exception) { }
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -157,8 +176,12 @@ namespace AwesomeBrowser
 
         private void deleteBookmarkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            books.deleteBookmark(bookmark_list.SelectedItem.ToString());
-            generateBookMarks();
+            try
+            {
+                books.deleteBookmark(bookmark_list.SelectedItem.ToString());
+                generateBookMarks();
+            }
+            catch (Exception) { }
         }
     }
 }
