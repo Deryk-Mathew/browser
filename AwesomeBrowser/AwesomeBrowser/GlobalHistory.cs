@@ -8,26 +8,42 @@ namespace AwesomeBrowser
     {
         static HashSet<string> history = new HashSet<string>();
 
+        //
+        // Constructor
+        //
         public GlobalHistory()
         {
             history = Deserialize();
         }
 
+        //
+        // Add webpage address to history
+        //
         internal void addHistory(string value)
         {
-            
             history.Add(value);
-
             Serialize(history);
         }
 
+        //
+        // Return the history hashset
+        //
         internal HashSet<string> displayHistory()
         {
             return history;
         }
 
-        internal void clearHistory() { history.Clear(); Serialize(history); }
+        //
+        // Clear History method
+        //
+        internal void clearHistory() {
+            history.Clear();
+            Serialize(history);
+        }
 
+        //
+        // Serialize history to history.bin
+        //
         static void Serialize(HashSet<string> data)
         {
             using (var file = File.Create(@"history.bin"))
@@ -41,6 +57,9 @@ namespace AwesomeBrowser
             }
         }
 
+        //
+        // Deserialize history.bin to history
+        //
         static HashSet<string> Deserialize()
         {
             using (var file = File.OpenRead(@"history.bin"))
@@ -56,6 +75,9 @@ namespace AwesomeBrowser
             }
         }
 
+        //
+        // return specific history item from hashset
+        //
         internal string getHistory(string v)
         {
             return history.SingleOrDefault(x => x == v);

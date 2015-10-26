@@ -9,12 +9,19 @@ namespace AwesomeBrowser
 {
     public partial class Bookmarks 
     {
+        // Key is URL, value is alias
         static Dictionary<string, string> bookmarks = new Dictionary<string, string>();
 
+        //
+        // Constructor
+        //
         public Bookmarks() {
             bookmarks = Deserialize();
         }
 
+        //
+        // Add bookmark method
+        //
         internal void addBookmark(string key, string value)
         {
             try
@@ -25,24 +32,36 @@ namespace AwesomeBrowser
             catch (Exception) { }
         }
 
+        //
+        // edit bookmark method
+        //
         internal void editBookmark(string key, string value)
         {
-            bookmarks.Remove(key);
+            bookmarks.Remove(key); // delete bookmark before adding edited bookmark
             bookmarks.Add(key, value);
             Serialize(bookmarks);
         }
 
+        //
+        // return the current bookmarks
+        //
         internal List<string> displayBookmarks()
         {
             List<string> list = new List<string>(bookmarks.Values);
             return list;
         }
 
+        //
+        // return specific bookmark key from value
+        //
         internal string getBookmark(string value)
         {
             return bookmarks.FirstOrDefault(x => x.Value == value).Key;
         }
 
+        //
+        // Serialize bookmark to bookmark.bin
+        //
         static void Serialize(Dictionary<string, string> data)
         {
             using (var file = File.Create(@"bookmark.bin"))
@@ -57,6 +76,9 @@ namespace AwesomeBrowser
             }
         }
 
+        //
+        // Deserialize bookmark.bin to bookmark
+        //
         static Dictionary<string, string> Deserialize()
         {
             using (var file = File.OpenRead(@"bookmark.bin"))
@@ -72,6 +94,9 @@ namespace AwesomeBrowser
             }
         }
 
+        //
+        // Delete specific bookmark
+        //
         internal void deleteBookmark(string v)
         {
             bookmarks.Remove(bookmarks.FirstOrDefault(x => x.Value == v).Key);

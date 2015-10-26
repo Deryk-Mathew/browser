@@ -77,7 +77,6 @@
     <Compile Include="newHomepage.Designer.cs">
       <DependentUpon>newHomepage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetWebPage.cs" />
     <Compile Include="BrowserFrame.cs">
       <SubType>Form</SubType>
     </Compile>

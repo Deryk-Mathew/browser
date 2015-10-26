@@ -1,18 +1,21 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AwesomeBrowser
 {
     public partial class BrowserFrame : Form
     {
-            
 
         public BrowserFrame()
         {
             InitializeComponent();
-            populateTab();
-        }
+            homeTab();
+         }
 
-        public void populateTab()
+        //
+        // Create inittial tab for home tab
+        //
+        public void homeTab()
         {
             tabGUI frm2 = new tabGUI();
             frm2.TopLevel = false;
@@ -21,7 +24,10 @@ namespace AwesomeBrowser
             tabControl1.TabPages[0].Controls.Add(frm2);
         }
 
-        private void tabControl1_DoubleClick(object sender, System.EventArgs e)
+        //
+        // create new tab method
+        //
+        private void newTab()
         {
             tabGUI frm3 = new tabGUI();
             TabPage tp = new TabPage();
@@ -33,11 +39,25 @@ namespace AwesomeBrowser
             tp.Text = "New Page";
         }
 
+        //
+        // new tab double click event
+        //
+        private void tabControl1_DoubleClick(object sender, System.EventArgs e)
+        {
+            newTab();
+        }
+
+        //
+        // newTab tool strip menu event
+        //
         private void newTabToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             tabControl1_DoubleClick(sender, e);
         }
 
+        //
+        // Close tab menu event
+        //
         private void closeTabToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             tabControl1.TabPages.Remove(tabControl1.SelectedTab);

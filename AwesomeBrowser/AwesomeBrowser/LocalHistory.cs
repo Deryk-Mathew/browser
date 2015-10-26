@@ -13,17 +13,18 @@ namespace AwesomeBrowser
 
         public LocalHistory(){}
 
+        //
+        // Add returned html code to local history list
+        //
         internal void addLocalHistory(string text)
         {
             local_list.Add(text);
             local_list.TrimExcess();
         }
 
-        internal string getHomePage()
-        {
-            return local_list[0]; 
-        }
-
+        //
+        // Method for moving backwards through local history list
+        //
         internal string back()
         {
             
@@ -37,22 +38,22 @@ namespace AwesomeBrowser
                 
         }
 
+        //
+        // Method for moving forwards through local history list
+        //
         internal string forward()
         {
             if (pointer < local_list.Count - 1)
             {
                 pointer++;
                 return local_list[pointer];
-                //return pointer;
             }
             else if (pointer > local_list.Count)
             {
                 return local_list[pointer];
-                //return pointer;
             }
             else
                 return local_list[pointer];
-                //return pointer;
         }
     }
 

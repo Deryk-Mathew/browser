@@ -9,7 +9,9 @@ namespace AwesomeBrowser
         {
             InitializeComponent();
         }
-
+         //
+         // Save homepage to settings
+         //
         private void submit_new_homepage_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.homepage = homepage_address.Text;
@@ -17,6 +19,9 @@ namespace AwesomeBrowser
             this.Close();
         }
 
+        //
+        // Edit homepage and save to settings
+        //
         public void urlEditName()
         {
             this.label1.Text = "Edit Homepage";
